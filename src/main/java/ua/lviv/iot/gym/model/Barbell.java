@@ -1,3 +1,4 @@
+
 package ua.lviv.iot.gym.model;
 
 public class Barbell extends PowerMachine{
@@ -13,10 +14,15 @@ public class Barbell extends PowerMachine{
 	public Barbell() {
 		this(0.0, 0.0,null,null,0,0);
 	}
-	public Barbell(double pricePerHour, double durationInMinutes, String producingCountry, String model,
-			double gainOfWeightInKilo, double handleLenghtInMeters) {
+	public Barbell(double pricePerHour, double durationInMinutes, String producingCountry, 
+		String model,double gainOfWeightInKilo, double handleLenghtInMeters) {
 		super(pricePerHour, durationInMinutes, producingCountry, model, gainOfWeightInKilo);
 		this.handleLenghtInMeters = handleLenghtInMeters;
 	}
-
+	public String getHeaders() {
+		return super.getHeaders()+",handleLenghtInMeters ";
+	}
+	public String toCSV() {
+		return super.toCSV()+","+"handleLenghtInMeters= "+getHandleLenghtInMeters();
+	}
 }

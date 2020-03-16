@@ -3,7 +3,8 @@ package ua.lviv.iot.gym.model;
 public class CardioZoneMachine extends AbstractExerciseMachine {
 	private double droppedWeightInKilo;
 
-	public CardioZoneMachine(double pricePerHour, double durationInMinutes, String producingCountry, String model, double droppedWeightInKilo ) {
+	public CardioZoneMachine(double pricePerHour, double durationInMinutes, 
+	String producingCountry,String model, double droppedWeightInKilo) {
 		super(pricePerHour, durationInMinutes, producingCountry, model);
 		this.droppedWeightInKilo = droppedWeightInKilo;
 
@@ -20,5 +21,10 @@ public class CardioZoneMachine extends AbstractExerciseMachine {
 	public void setDroppedWeightInKilo(double droppedWeightInKilo) {
 		this.droppedWeightInKilo = droppedWeightInKilo;
 	}
-
+	public String getHeaders() {
+		return super.getHeaders()+",droppedWeightInKilo ";
+	}
+	public String toCSV() {
+		return super.toCSV()+","+"droppedWeightInKilo= "+getDroppedWeightInKilo();
+	}
 }

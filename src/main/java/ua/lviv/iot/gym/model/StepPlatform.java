@@ -10,12 +10,20 @@ public class StepPlatform extends CardioZoneMachine{
 	public void setHighOfThePlatform(double highOfThePlatform) {
 		this.highOfThePlatform = highOfThePlatform;
 	}
-	public StepPlatform(double pricePerHour, double durationInMinutes, String producingCountry, String model,
+	public StepPlatform(double pricePerHour, double durationInMinutes,
+			String producingCountry, String model,
 			double droppedWeightInKilo, double highOfThePlatform) {
-		super(pricePerHour, durationInMinutes, producingCountry, model, droppedWeightInKilo);
+		super(pricePerHour, durationInMinutes, producingCountry, model, 
+		droppedWeightInKilo);
 		this.highOfThePlatform = highOfThePlatform;
 	}
 	public StepPlatform() {
 		this(0.0, 0.0,null,null,0,0);
+	}
+	public String getHeaders() {
+		return super.getHeaders()+",highOfThePlatform ";
+	}
+	public String toCSV() {
+		return super.toCSV()+","+"highOfThePlatform= "+getHighOfThePlatform();
 	}
 }

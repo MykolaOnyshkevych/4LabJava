@@ -1,9 +1,7 @@
 package ua.lviv.iot.gym.manager;
 
 import java.util.LinkedList;
-
 import java.util.List;
-
 import ua.lviv.iot.gym.model.AbstractExerciseMachine;
 
 public class GymManager {
@@ -15,16 +13,16 @@ public class GymManager {
 	}
 
 	public GymManager() {
-
 	}
+
 	public void addExerciseToProgram(AbstractExerciseMachine exerciseMachine) {
 		this.exerciseMachineList.add(exerciseMachine);
 	}
+
 	public void addAllExercisesToProgram(List<AbstractExerciseMachine> exerciseMachineList) {
-			this.exerciseMachineList.addAll(exerciseMachineList);
+		this.exerciseMachineList.addAll(exerciseMachineList);
 	}
 
-	
 	public List<AbstractExerciseMachine> findExerciseByDuration(double appropriateDurationInMinutes) {
 		List<AbstractExerciseMachine> foundedExerciseByDuration = new LinkedList<>();
 		for (AbstractExerciseMachine exercise : exerciseMachineList) {
@@ -44,6 +42,5 @@ public class GymManager {
 		}
 		return foundedExerciseByLowerPrice;
 	}
-
 
 }

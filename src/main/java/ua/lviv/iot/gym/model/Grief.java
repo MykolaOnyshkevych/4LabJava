@@ -6,9 +6,11 @@ public class Grief extends PowerMachine {
 public Grief() {
 	this(0.0, 0.0,null,null,0,0,0);
 }
-	public Grief(double pricePerHour, double durationInMinutes, String producingCountry, String model,
-			double gainOfWeightInKilo, double ropeLenghtInMeters, double sittingPlaceHighInMeters) {
-		super(pricePerHour, durationInMinutes, producingCountry, model, gainOfWeightInKilo);
+	public Grief(double pricePerHour, double durationInMinutes, 
+	String producingCountry,String model,double gainOfWeightInKilo, 
+	double ropeLenghtInMeters,double sittingPlaceHighInMeters) {
+		super(pricePerHour, durationInMinutes, producingCountry, 
+			model, gainOfWeightInKilo);
 		this.ropeLenghtInMeters = ropeLenghtInMeters;
 		this.sittingPlaceHighInMeters = sittingPlaceHighInMeters;
 	}
@@ -24,10 +26,11 @@ public Grief() {
 	public void setSittingPlaceHighInMeters(double sittingPlaceHighInMeters) {
 		this.sittingPlaceHighInMeters = sittingPlaceHighInMeters;
 	}
-	@Override
-	public String toString() {
-		return "Grief [ropeLenghtInMeters=" + ropeLenghtInMeters + ", sittingPlaceHighInMeters="
-				+ sittingPlaceHighInMeters + "]";
+	public String getHeaders() {
+		return super.getHeaders()+",ropeLenghtInMeters "+",sittingPlaceHighInMeters";
+	}
+	public String toCSV() {
+		return super.toCSV()+","+"ropeLenghtInMeters= "+getRopeLenghtInMeters()+","+"sittingPlaceHighInMeters="+getSittingPlaceHighInMeters();
 	}
 	
 }
